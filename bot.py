@@ -99,9 +99,7 @@ async def on_message(message):
                     await message.channel.send(error_message)
                 try:
                     await message.channel.send(f"Current {coin} Price: **{cryptocompare.get_price(coin, currency)[coin][currency]} {currency}**")
-                except TypeError:
-                    await message.channel.send("**ERROR** Invalid parameters.")
-                except KeyError:
+                except TypeError, KeyError:
                     await message.channel.send("**ERROR** Invalid parameters.")
     # Commands sent in DM
     except AttributeError:
