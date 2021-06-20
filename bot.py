@@ -96,7 +96,7 @@ async def on_message(message):
                 embed = discord.Embed(title=":coin: Coin List", url="https://www.cryptocompare.com/coins/list/all/USD/1", description="This is a list of valid cryptocurrencies you can use with the bot", color=0x29a347)
                 embed.set_thumbnail(url="https://www.cryptocompare.com/media/20567/cc-logo-vert.png")
                 await message.channel.send(embed=embed)
-            else:
+            elif command[1] in cryptocompare.get_coin_list(format=True):
                 # Current Price Command
                 coin, currency, error_message = current_price(command)
                 if error_message:
