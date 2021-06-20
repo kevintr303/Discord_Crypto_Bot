@@ -1,8 +1,9 @@
 # What is this?
 
 This is a simple Discord Bot coded in Python that uses the free CryptoCompare API to display cryptocurrency prices
+[![Discord Crypto Bot](https://github.com/kevintr303/Discord_Crypto_Bot/blob/main/screenshots/$cb_command.png?raw=true)](#Installation)
 
-## Installation
+## Download
 
 Use git to clone the repository or just download it as a ZIP
 
