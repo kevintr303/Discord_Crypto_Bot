@@ -60,10 +60,6 @@ def current_price(command, coin=None, currency=None, error_message=None):
         return coin, currency, error_message
 
 
-def format_message_embed():
-    pass
-
-
 @client.event
 async def on_ready():
     print(f"Connected as {client.user}")
