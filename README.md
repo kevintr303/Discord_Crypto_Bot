@@ -42,5 +42,8 @@ The **base_command** variable is the command people will use for the bot, and **
 ## Why did I make this?
 Well, mostly for fun and as a learning experience. I wanted to create something that might be useful and thought, "hey, bitcoin's pretty popular right now. I should make a discord bot that tells you the current price," And so I did. This also marks my very first repository on GitHub(and first Discord bot). At the time of writing this, I have been learning Python for about 4-5 months now, so the code isn't the greatest.
 
+## What did I learn?
+From this, I learned about **environment variables** and how to use them, how to create **discord bots**, and **event handling using Python decorators**. That's a win if you ask me, to future projects we go! (Although I might revisit this in the future to improve on my code!)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
