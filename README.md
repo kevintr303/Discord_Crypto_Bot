@@ -36,7 +36,7 @@ bot_channel = "crypto_tracker"
 The **base_command** variable is the command people will use for the bot, and **bot_channel** is the name of the channel where the bot works. The main command of the bot: `$cb` will show all the current commands that exist. For ease I will also list the commands here: **(make sure to have exact capitalization and formatting)**
 1. `$cb` lists information and commands
 2. `$cb [coin] [currency]` Usage: `$cb BTC USD` Shows current price of a coin
-3. `$cb history [coin] [currency] [date]` Usage: `$cb history BTC USD 2021/6/20` Shows historical price of a coin
+3. `$cb history [coin] [currency] [date]` Usage: `$cb history BTC USD 2021,6,20` Shows historical price of a coin
 4. `$cb coins` Links to the CryptoCompare website that shows all coin types
 
 ## Why did I make this?
