@@ -18,17 +18,29 @@ client = discord.Client()
 
 # The default message sent if no command parameters are sent
 def default_message():
-    embed = discord.Embed(title=":sunglasses: Crypto Bot", description="This simple bot tracks several cryptocurrencies using the CryptoCompare API", url="https://github.com/kevintr303", color=0x0fa5f0)
+    embed = discord.Embed(
+        title=":sunglasses: Crypto Bot",
+        description="This simple bot tracks several cryptocurrencies using the CryptoCompare API",
+        url="https://github.com/kevintr303",
+        color=0x0FA5F0,
+    )
     embed.add_field(name=":money_with_wings: Check Prices", value="```$cb BTC USD```")
-    embed.add_field(name=":chart_with_upwards_trend: Check Historical Prices", value="```$cb history ETH EUR 2018,5,20```")
+    embed.add_field(
+        name=":chart_with_upwards_trend: Check Historical Prices",
+        value="```$cb history ETH EUR 2018,5,20```",
+    )
     embed.add_field(name=":coin: Coin List", value="```$cb coins```")
-    embed.add_field(name=":warning: NOTE:", value="Minimum date is March 20, 2017", inline=False)
+    embed.add_field(
+        name=":warning: NOTE:", value="Minimum date is March 20, 2017", inline=False
+    )
     embed.set_footer(text="made by https://github.com/kevintr303")
     return embed
 
 
 # Price History Command
-def price_history(command, error_message=None, coin=None, currency=None, timestamp=None):
+def price_history(
+    command, error_message=None, coin=None, currency=None, timestamp=None
+):
     try:
         coin = command[2]
         currency = command[3]
@@ -82,15 +94,23 @@ async def on_message(message):
                 if error_message:
                     await message.channel.send(error_message)
                 try:
-                    await message.channel.send(f"{coin} Price @ {timestamp.date()}: **{cryptocompare.get_historical_price(coin, currency, timestamp=timestamp)[coin][currency]} {currency}**")
+                    await message.channel.send(
+                        f"{coin} Price @ {timestamp.date()}: **{cryptocompare.get_historical_price(coin, currency, timestamp=timestamp)[coin][currency]} {currency}**"
+                    )
                 except KeyError:
                     await message.channel.send("**ERROR** Invalid parameters.")
 
-
             # Coin List Command
             elif command[1] == "coins":
-                embed = discord.Embed(title=":coin: Coin List", url="https://www.cryptocompare.com/coins/list/all/USD/1", description="This is a list of valid cryptocurrencies you can use with the bot", color=0x29a347)
-                embed.set_thumbnail(url="https://www.cryptocompare.com/media/20567/cc-logo-vert.png")
+                embed = discord.Embed(
+                    title=":coin: Coin List",
+                    url="https://www.cryptocompare.com/coins/list/all/USD/1",
+                    description="This is a list of valid cryptocurrencies you can use with the bot",
+                    color=0x29A347,
+                )
+                embed.set_thumbnail(
+                    url="https://www.cryptocompare.com/media/20567/cc-logo-vert.png"
+                )
                 await message.channel.send(embed=embed)
             elif command[1] in cryptocompare.get_coin_list(format=True):
                 # Current Price Command
@@ -98,13 +118,18 @@ async def on_message(message):
                 if error_message:
                     await message.channel.send(error_message)
                 try:
-                    await message.channel.send(f"Current {coin} Price: **{cryptocompare.get_price(coin, currency)[coin][currency]} {currency}**")
-                except TypeError, KeyError:
+                    await message.channel.send(
+                        f"Current {coin} Price: **{cryptocompare.get_price(coin, currency)[coin][currency]} {currency}**"
+                    )
+                except (TypeError, KeyError):
                     await message.channel.send("**ERROR** Invalid parameters.")
     # Commands sent in DM
     except AttributeError:
         if isinstance(message.channel, discord.channel.DMChannel):
             pass
 
+
 if __name__ == "__main__":
-    client.run(os.getenv('TOKEN'))  # Place your token here (instead of os.getenv()) or set up an environment variable
+    client.run(
+        os.getenv("TOKEN")
+    )  # Place your token here (instead of os.getenv()) or set up an environment variable
